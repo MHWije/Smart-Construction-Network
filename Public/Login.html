@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Login-Smart Construction Manager</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+    <link href="vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/flex-slider/flexslider.css" rel="stylesheet">
+    <link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script src="./SCN/js/angular.min.js"></script>
+    <script src="./SCN/js/Login.js"></script>
+    <link rel="stylesheet" href="./SCN/css/priv/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./SCN/css/Login.css" type="text/css" />
+
+</head>
+<body ng-app="loginApp">
+
+
+<!--================Header Area =================-->
+<header class="main_header_area">
+    <div class="header_top_area">
+        <div id="header" class="clear" style="margin: 0 70px 0 70px;">
+            <div class="fl_left">
+                <h1><a href="index.html">smart construction manager</a></h1>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+<!--================Header Area =================-->
+
+<div class="wrapper row5" style="margin-top: 90px;">
+    <div id="container" class="clear" style="width: 1100px">
+        <!-- ####################################################################################################### -->
+        <div class="loginsignin" ng-controller="loginController" >
+
+            <h1>Sign In</h1>
+            <div>
+                <ul id="errorList" style="color: red"></ul>
+            </div>
+            <form action="" method="">
+                <div class="container" style="width: 100%">
+
+                    <label id="uname"><b>Username *</b></label>
+                    <input type="text" placeholder="Enter Username" id="unametxt" name="uname" ng-model="username">
+
+                    <label id="psw"><b>Password *</b></label>
+                    <input type="password" placeholder="Enter Password" id="pswtxt" name="psw" ng-model="password">
+
+                    <button type="button" ng-click="login()">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+                <div class="margin"></div>
+                <div class="container" style="background-color:#f1f1f1;width: 100%">
+                    <button type="button" class="cancelbtn" onclick="location.href='index.html';">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+        <div class="loginsignup">
+            <h1 style="margin-left: 10px;">Create a new account</h1>
+            <div class="SignupInner">
+
+                <p>It's free and always will be...</p>
+                <span>Smart Construction Manager is a network of Construction Field Stake Holders where it bonds the connection between Clients  and
+                Construction Field Stake Holders on a well-managed platform. You can join the community as a Construction Field Stake Holder
+                    or a Visitor and manage your own Construction related work.</span>
+                <br>
+                <br>
+                <br>
+                <span>By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>.
+                     You may receive notifications from us and can opt out at any time.</span>
+                <br>
+                <br>
+                <br>
+                <button type="submit" style="float: right;width: 100px" onclick="location.href='NewAccount.html';">Sign Up</button>
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+    </div>
+</div>
+
+<!--================Footer Area =================-->
+<div class="footer_copy_right">
+    <div class="container">
+        <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"></a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></h4>
+    </div>
+</div>
+</footer>
+<!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Rev slider js -->
+<script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendors/counterup/waypoints.min.js"></script>
+<script src="vendors/counterup/jquery.counterup.min.js"></script>
+<script src="vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="js/gmaps.min.js"></script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

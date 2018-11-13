@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sign Up - Smart Construction Manager</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+    <link href="vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/flex-slider/flexslider.css" rel="stylesheet">
+    <link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet" href="SCN/css/priv/layout.css" type="text/css" />
+    <link rel="stylesheet" href="SCN/css/NewAccount.css" type="text/css" />
+    <script src="./SCN/js/angular.min.js"></script>
+    <script src="./SCN/js/NewAccount.js"></script>
+    <script src="./SCN/js/ErrorHandling.js"></script>
+
+    <!-- Login form  toggle -->
+    <script>
+        function onloading(){
+            document.getElementById("clientform").style.display = "none";
+        }
+
+        function ToggleForm(id) {
+            var x = document.getElementById(id);
+            if(id==="workerform"){
+                var other = document.getElementById("clientform");
+                x.style.display = "block";
+                other.style.display = "none";
+                RemoveErrors("errorList2");
+            }
+            else{
+                var other = document.getElementById("workerform");
+                x.style.display = "block";
+                other.style.display = "none";
+                RemoveErrors("errorList1");
+            }
+
+        }
+    </script>
+
+
+</head>
+<body onload="onloading()" ng-app="NewAccountApp">
+
+
+<!--================Header Area =================-->
+<header class="main_header_area">
+    <div class="header_top_area">
+        <div id="header" class="clear" style="margin: 0 70px 0 70px;">
+            <div class="fl_left">
+                <h1><a href="index.html">smart construction manager</a></h1>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+<!--================Header Area =================-->
+
+<div class="wrapper row4" style="margin-top: 90px;">
+    <div id="quicknav" class="clear">
+        <ul>
+            <li><a id="loginHeader1" href="#" onclick="ToggleForm('workerform')">Sign Up as Community Member</a>
+            </li>
+            <li><a id="loginHeader2" href="#" onclick="ToggleForm('clientform')">Sign Up as Client</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper row5">
+    <div id="container" class="clear" style="margin-left: 80px;">
+        <!-- ####################################################################################################### -->
+        <div id="homepage" class="clear">
+            <div id="workerform" ng-controller="WorkerController">
+                <form action="" method="">
+
+                    <div class="container">
+                        <h1 align="center">Registration for Community Member/Worker</h1>
+                        <br/>
+
+                        <div>
+                            <ul id="errorList1" style="color: red"></ul>
+                        </div>
+
+                        <br/>
+                        <p class="subHeaders">Basic Details</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* First Name" name="Wfirstname" ng-model="Wfirstname" /></td>
+                                <td><input type="text" placeholder="* Middle Name" name="Wmiddlename" ng-model="Wmiddlename" /></td>
+                                <td><input type="text" placeholder="* Last Name" name="Wlastname" ng-model="Wlastname" /></td>
+                            </tr>
+                            <tr>
+                                <td>* Gender :</td>
+                                <td><input type="radio" name="Wgender" value="male" checked ng-model="Wgender"/> Male
+                                    <input type="radio" name="Wgender" value="female" ng-model="Wgender"/> Female
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>* Birthday :</td>
+                                <td><input type="date" name="Wbday" ng-model="Wbday"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* Email" name="Wemail" ng-model="Wemail" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="Wjobcategory" ng-model="Wjobcategory" >
+                                        <option value="">* Select your Job Category</option>
+                                        <option value="Mason">Mason</option>
+                                        <option value="Carpenter">Carpenter</option>
+                                        <option value="Painter">Painter</option>
+                                        <option value="Deliver">Deliver</option>
+                                        <option value="Electrician">Electrician</option>
+                                        <option value="Plumber">Plumber</option>
+                                        <option value="Repair">Repair</option>
+                                        <option value="Concrete Slab">Concrete Slab</option>
+                                        <option value="Tile">Tile</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br/>
+                        <p class="subHeaders">Address</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+                        <p>Current Address</p>
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* Address line 1" name="Wcaddressline1" ng-model="Wcaddressline1" /></td>
+                                <td><input type="text" placeholder="* Address line 2" name="Wcaddressline2" ng-model="Wcaddressline2" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* City" name="Wccity" ng-model="Wccity" /></td>
+                                <td><input type="text" placeholder="* Country" name="Wccountry" ng-model="Wccountry" /></td>
+                                <td><input type="text" placeholder="* Zip code" name="Wczipcode" ng-model="Wczipcode" /></td>
+                            </tr>
+                        </table>
+                        <p>Permanent Address</p>
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* Address line 1" name="Wpaddressline1" ng-model="Wpaddressline1" /></td>
+                                <td><input type="text" placeholder="* Address line 2" name="Wpaddressline2" ng-model="Wpaddressline2" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* City" name="Wpcity" ng-model="Wpcity" /></td>
+                                <td><input type="text" placeholder="* Country" name="Wpcountry" ng-model="Wpcountry" /></td>
+                                <td><input type="text" placeholder="* Zip code" name="Wpzipcode"  ng-model="Wpzipcode"/></td>
+                            </tr>
+                        </table>
+
+
+                        <br/>
+                        <p class="subHeaders">Contact Details</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* Mobile Phone" name="Wmobile" ng-model="Wmobile" /></td>
+                                <td><input type="text" placeholder="* Home Phone" name="Whome" ng-model="Whome"  /></td>
+                                <td></td>
+                            </tr>
+                        </table>
+
+
+                        <br/>
+                        <p class="subHeaders">Login Credentials</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+                        <table style="width:50%">
+                            <tr>
+                                <td><input type="text" placeholder="* Username" name="Wusername" ng-model="Wusername" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" placeholder="* Password" name="Wpsw" ng-model="Wpsw" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" placeholder="* Repeat Password" name="Wpswrepeat" ng-model="Wpswrepeat" /></td>
+                            </tr>
+                        </table>
+                        <hr/>
+
+
+
+
+                        <p>By creating an account you agree to our <a class="pageLinks" href="#">Terms & Privacy</a>.</p>
+                        <button type="button" class="registerbtn" ng-click="WRegister()">Register</button>
+                    </div>
+
+                    <div class="container signin">
+                        <p>Already have an account? <a class="pageLinks" href="Login.html">Sign in</a>.</p>
+                    </div>
+
+                </form>
+            </div>
+
+            <div id="clientform" ng-controller="ClientController">
+                <form action="" method="">
+
+                    <div class="container">
+                        <h1 align="center">Registration for Client</h1>
+                        <br/>
+
+                        <div>
+                            <ul id="errorList2" style="color: red"></ul>
+                        </div>
+
+                        <br/>
+                        <p class="subHeaders">Basic Details</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* First Name" name="Cfirstname" ng-model="Cfirstname" /></td>
+                                <td><input type="text" placeholder="* Middle Name" name="Cmiddlename" ng-model="Cmiddlename" /></td>
+                                <td><input type="text" placeholder="* Last Name" name="Clastname" ng-model="Clastname" /></td>
+                            </tr>
+                            <tr>
+                                <td>* Gender :</td>
+                                <td><input type="radio" name="Cgender" value="male" checked ng-model="Cgender" /> Male
+                                    <input type="radio" name="Cgender" value="female" ng-model="Cgender" /> Female
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* Email" name="Cemail" ng-model="Cemail" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* Occupation" name="Coccupation" ng-model="Coccupation" /></td>
+                            </tr>
+                        </table>
+
+                        <p class="subHeaders">Address</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+                        <p>Permanent Address</p>
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* Address line 1" name="Cpaddressline1" ng-model="Cpaddressline1" /></td>
+                                <td><input type="text" placeholder="* Address line 2" name="Cpaddressline2" ng-model="Cpaddressline2" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="* City" name="Cpcity" ng-model="Cpcity" /></td>
+                                <td><input type="text" placeholder="* Country" name="Cpcountry" ng-model="Cpcountry" /></td>
+                                <td><input type="text" placeholder="* Zip code" name="Cpzipcode" ng-model="Cpzipcode" /></td>
+                            </tr>
+                        </table>
+
+                        <br/>
+                        <p class="subHeaders">Contact Details</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+                        <table style="width:100%">
+                            <tr>
+                                <td><input type="text" placeholder="* Mobile Phone" name="Cmobile" ng-model="Cmobile" /></td>
+                                <td><input type="text" placeholder="* Home Phone" name="Chome" ng-model="Chome" /></td>
+                                <td></td>
+                            </tr>
+                        </table>
+
+                        <br/>
+                        <br/>
+                        <p class="subHeaders">Login Credentials</p>
+                        <hr style="border-top: 1px solid #9c9595" />
+
+                        <table style="width:50%">
+                            <tr>
+                                <td><input type="text" placeholder="* Username" name="Cusername" ng-model="Cusername" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" placeholder="* Password" name="Cpsw" ng-model="Cpsw" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" placeholder="* Repeat Password" name="Cpswrepeat" ng-model="Cpswrepeat" /></td>
+                            </tr>
+                        </table>
+                        <hr/>
+
+
+
+
+                        <p>By creating an account you agree to our <a class="pageLinks" href="#">Terms & Privacy</a>.</p>
+                        <button type="button" class="registerbtn" ng-click="CRegister()">Register</button>
+                    </div>
+
+                    <div class="container signin">
+                        <p>Already have an account? <a class="pageLinks" href="Login.html">Sign in</a>.</p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <!-- ####################################################################################################### -->
+    </div>
+</div>
+
+<!--================Footer Area =================-->
+<div class="footer_copy_right">
+    <div class="container">
+        <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"></a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></h4>
+    </div>
+</div>
+</footer>
+<!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Rev slider js -->
+<script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendors/counterup/waypoints.min.js"></script>
+<script src="vendors/counterup/jquery.counterup.min.js"></script>
+<script src="vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="js/gmaps.min.js"></script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

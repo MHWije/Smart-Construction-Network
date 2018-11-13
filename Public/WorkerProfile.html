@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Profile</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+    <link href="vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/flex-slider/flexslider.css" rel="stylesheet">
+    <link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet" href="SCN/css/priv/layout.css" type="text/css" />
+    <link rel="stylesheet" href="SCN/css/WorkerProfile.css" type="text/css" />
+    <link rel="stylesheet" href="SCN/css/notifications.css" type="text/css" />
+    <script src="./SCN/js/angular.min.js"></script>
+    <script src="./SCN/js/WorkerProfile.js"></script>
+    <script src="./SCN/js/ErrorHandling.js"></script>
+
+
+</head>
+<body ng-app="WorkerProfileApp" onload="onloading()">
+
+
+<!--================Header Area =================-->
+<header class="main_header_area">
+    <div class="header_top_area">
+        <div id="header" class="clear" style="margin: 0 70px 0 70px;">
+            <div class="fl_left">
+                <h1><a href="index.html">smart construction manager</a></h1>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="main_menu_area" ng-controller="HeaderController">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Connections.html">Connections</a></li>
+                        <li><a href="Qualification.html">Courses</a></li>
+                        <li class="dropdown submenu active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loggedUsername}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="WorkerProfile.html">View Profile</a></li>
+                                <li><a href="#" ng-click="logout()">Log Out</a></li>
+                            </ul>
+                        </li>
+                        <li class="notifyCount" id="notifyCount" data-badge="1"><a href="ViewNotifications.html"><i class="mdi mdi-message"></i></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+</header>
+<!--================Header Area =================-->
+
+<!--================Banner Area =================   >
+<section class="banner_area" style="background: url(img/banner/single-page-banner2.jpg); background-size: cover">
+    <div class="container">
+        <div class="banner_inner_text">
+            <h4>User Profile</h4>
+        </div>
+    </div>
+</section>
+<!--================End Banner Area =================-->
+
+<section class="profilesummary" ng-controller="WPUserSummaryController">
+    <div class="container" style="background-color:#d6d6c2;">
+        <div>
+            <div class="summarydetails1">
+                <img ng-src="{{summarydisplaypic}}"  alt="User" width="140" height="140">
+            </div>
+            <div class="summarydetails2">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td>{{summaryfname}} {{summarymname}} {{summarylname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Job Category</td>
+                        <td>:</td>
+                        <td>{{summaryjobcategory}}</td>
+                    </tr>
+                    <tr>
+                        <td>Rating</td>
+                        <td>:</td>
+                        <td>{{summaryrating}}</td>
+                    </tr>
+                    <tr>
+                        <td>Project Allocation</td>
+                        <td>:</td>
+                        <td>{{summaryallocated}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="imageUpload">
+            <p style="display: inline-block;vertical-align: top;">Change Profile Picture :</p>
+            <div class="innerImageUpload">
+                <input type="file" id="file"/>
+                <i class="fa fa-plus-circle" style="font-size: 25px;" onclick="UploadImage()"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sectionBody" style="padding: 0">
+    <div class="container">
+        <div>
+            <ul id="successmsgList" style="color: green"></ul>
+        </div>
+    </div>
+</section>
+
+<section class="our_project2_area" style="background-color: white;padding: 50px 0px 0px 0px;">
+    <div class="container" style="background-color: white;">
+        <ul class="our_project_filter" style="max-width: 850px;">
+            <li id="list1" class="active" onclick="ToggleProfileNav('1','2','3','4','5','6')"><a href="#">User Information</a></li>
+            <li id="list2" ><a href="#" onclick="ToggleProfileNav('2','1','3','4','5','6')">Certifications</a></li>
+            <li id="list3" ><a href="#" onclick="ToggleProfileNav('3','1','2','4','5','6')">Skills</a></li>
+            <li id="list4" ><a href="#" onclick="ToggleProfileNav('4','1','2','3','5','6')">Experience</a></li>
+            <li id="list5" ><a href="#" onclick="ToggleProfileNav('5','1','2','3','4','6')">Feedbacks</a></li>
+            <li id="list6" ><a href="#" onclick="ToggleProfileNav('6','1','2','3','4','5')">Account Settings</a></li>
+        </ul>
+    </div>
+</section>
+<section class="sectionBody" id="section1" ng-controller="WPUserInfoController">
+    <form action="" method="">
+        <div class="container">
+            <div>
+                <ul id="errorList1" style="color: red"></ul>
+            </div>
+
+            <br/>
+            <p class="subHeaders">Basic Details</p>
+            <hr style="border-top: 1px solid #9c9595" />
+
+            <table style="width:100%">
+                <tr>
+                    <td><input type="text" placeholder="* First Name" name="Wfirstname" ng-model="Wfirstname" /></td>
+                    <td><input type="text" placeholder="* Middle Name" name="Wmiddlename" ng-model="Wmiddlename" /></td>
+                    <td><input type="text" placeholder="* Last Name" name="Wlastname" ng-model="Wlastname" /></td>
+                </tr>
+                <tr>
+                    <td>* Gender :</td>
+                    <td><input type="radio" name="Wgender" value="male" checked ng-model="Wgender"/> Male
+                        <input type="radio" name="Wgender" value="female" ng-model="Wgender"/> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>* Birthday :</td>
+                    <td><input type="date" name="Wbday" id="Wbday" ng-model="Wbday"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="* NIC" name="Wnic" ng-model="Wnic" /></td>
+                    <td><input type="text" placeholder="* Email" name="Wemail" ng-model="Wemail" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Wjobcategory" ng-model="Wjobcategory" >
+                            <option value="">* Select your Job Category</option>
+                            <option value="Mason">Mason</option>
+                            <option value="Carpenter">Carpenter</option>
+                            <option value="Painter">Painter</option>
+                            <option value="Deliver">Deliver</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Concrete">Concrete Slab</option>
+                            <option value="Tile">Tile</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Wyrsexperince" ng-model="Wyrsexperince" id="Wyrsexperince">
+                            <option value="">* Select your years of experience</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">More than 10</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <p class="subHeaders">Billing Details</p>
+            <hr style="border-top: 1px solid #9c9595" />
+
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <select name="Wfeetype" ng-model="Wfeetype" >
+                            <option value="">* Select your fee type</option>
+                            <option value="Daily">Daily</option>
+                            <option value="Hourly">Hourly</option>
+                            <option value="Per Square Feet">Per Square Feet</option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="* Fee" name="Wfee" ng-model="Wfee" /></td>
+                    <td>
+                        <select name="Wfeecurrency" ng-model="Wfeecurrency" >
+                            <option value="">* Select your fee currency</option>
+                            <option value="LKR">Sri Lanka (LKR)</option>
+                            <option value="INR">India (INR)</option>
+                            <option value="CNY">China (CNY)</option>
+                            <option value="JPY">Japan (JPY)</option>
+                            <option value="USD">United States of America (USD)</option>
+                            <option value="GBP">United Kingdom (GBP)</option>
+                            <option value="AED">United Arab Emirates (AED)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Wworkinghours" ng-model="Wworkinghours" id="Wworkinghours">
+                            <option value="">* Select your working hours per day</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">More than 10</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <p class="subHeaders">Address</p>
+            <hr style="border-top: 1px solid #9c9595" />
+            <p>Current Address</p>
+            <table style="width:100%">
+                <tr>
+                    <td><input type="text" placeholder="* Address line 1" name="Wcaddressline1" ng-model="Wcaddressline1" /></td>
+                    <td><input type="text" placeholder="* Address line 2" name="Wcaddressline2" ng-model="Wcaddressline2" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="* City" name="Wccity" ng-model="Wccity" /></td>
+                    <td><input type="text" placeholder="* Country" name="Wccountry" ng-model="Wccountry" /></td>
+                    <td><input type="text" placeholder="* Zip code" name="Wczipcode" ng-model="Wczipcode" /></td>
+                </tr>
+            </table>
+            <p>Permanent Address</p>
+            <table style="width:100%">
+                <tr>
+                    <td><input type="text" placeholder="* Address line 1" name="Wpaddressline1" ng-model="Wpaddressline1" /></td>
+                    <td><input type="text" placeholder="* Address line 2" name="Wpaddressline2" ng-model="Wpaddressline2" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="* City" name="Wpcity" ng-model="Wpcity" /></td>
+                    <td><input type="text" placeholder="* Country" name="Wpcountry" ng-model="Wpcountry" /></td>
+                    <td><input type="text" placeholder="* Zip code" name="Wpzipcode"  ng-model="Wpzipcode"/></td>
+                </tr>
+            </table>
+            <br/>
+            <p class="subHeaders">Contact Details</p>
+            <hr style="border-top: 1px solid #9c9595" />
+            <table style="width:100%">
+                <tr>
+                    <td><input type="text" placeholder="* Mobile Phone" name="Wmobile" ng-model="Wmobile" /></td>
+                    <td><input type="text" placeholder="* Home Phone" name="Whome" ng-model="Whome"  /></td>
+                    <td></td>
+                </tr>
+            </table>
+            <br/>
+            <p class="subHeaders">Education</p>
+            <hr style="border-top: 1px solid #9c9595" />
+            <table style="width:100%">
+                <tr>
+                    <td><input type="text" placeholder="* College" name="Wcollege" ng-model="Wcollege" /></td>
+                    <td><input type="text" placeholder="* High School" name="Wschool" ng-model="Wschool"  /></td>
+                    <td></td>
+                </tr>
+            </table>
+            <br/>
+            <p class="subHeaders">Other Details</p>
+            <hr style="border-top: 1px solid #9c9595" />
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <select name="Wlanguage" ng-model="Wlanguage" >
+                            <option value="">* Select your language</option>
+                            <option value="Sinhala">Sinhala</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="German">German</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Wnationality" ng-model="Wnationality" >
+                            <option value="">* Select your nationality</option>
+                            <option value="Sri Lankan">Sri Lankan</option>
+                            <option value="Indian">Indian</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="German">German</option>
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Wreligion" ng-model="Wreligion" >
+                            <option value="">* Select your religion</option>
+                            <option value="Buddhism">Buddhism</option>
+                            <option value="Hinduism">Hinduism</option>
+                            <option value="Catholic">Catholic</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Jewish">Jewish</option>
+                            <option value="Maley">Maley</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><textarea rows="4" style="width: 100%" placeholder="* Bio" name="Wbio" ng-model="Wbio"/></textarea></td>
+                </tr>
+            </table>
+            <button type="button" class="registerbtn" ng-click="SaveUserInfo()">Save</button>
+        </div>
+    </form>
+</section>
+<section id="section2" class="sectionBody" ng-controller="WPCertificationcontroler" >
+    <div class="container">
+
+        <div>
+            <ul id="errorList2" style="color: red"></ul>
+        </div>
+        <br/>
+        <p class="subHeaders">Add Certifications</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <table style="width:100%">
+            <tr>
+                <td><input type="text" placeholder="Certifications EX:Bsc,Nvq,Hnd" name="Wcertification" ng-model="Wcertification" /></td>
+                <td><input type="text" placeholder="Provider" name="Wprovider" ng-model="Wprovider" list="providers" /></td>
+                <datalist id="providers">
+                    <option>University of Kelaniya</option>
+                    <option>University of Peradeniya</option>
+                    <option>University of Colombo</option>
+                    <option>University of Ruhuna</option>
+                    <option>University of Moratuwa</option>
+                    <option>University of Jayawardanapura</option>
+                    <option>University of Rajarata</option>
+                    <option>University of Sabaragamuwa</option>
+                    <option>University Collage</option>
+                    <option>Technical Collage</option>
+                    <option>Open University</option>
+                    <option>Ocean University</option>
+                    <option>Sliit</option>
+                    <option>Nibm</option>
+                    <option>Vta Collage</option>
+                </datalist>
+            </tr>
+            <tr>
+                <td>From Date :</td>
+                <td><input type="date" name="Wfromdate" id="Wfromdate" ng-model="Wfromdate"/></td>
+            </tr>
+            <tr>
+                <td>To Date :</td>
+                <td><input type="date" name="Wtodate" id="Wtodate" ng-model="Wtodate"/></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Certifications Path" name="Wpath" ng-model="Wpath" /></td>
+                <td><i class="fa fa-plus-circle" style="font-size: 30px;" ng-click="AddCertification()"></i></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p class="subHeaders">Your Certifications</p>
+        <hr style="border-top: 1px solid #9c9595" />
+
+        <div style="text-align: center">
+            <div class="certificationlLoop" ng-repeat="certification in certifications">
+
+
+                <div style="text-align: right">
+                    <button style="height: 24px;background-color: transparent;border: none;">
+                        <i class="mdi mdi-delete-forever" style="font-size: 20px;" ng-click="DeleteCertification(certification.certification_id)"></i>
+                    </button>
+                </div>
+
+
+                <div style="text-overflow: ellipsis;overflow: hidden;word-wrap: break-word;margin-left: 20px;margin-top: 10px;text-align: center">Certification : {{certification.certification}}</div>
+                <div>Provider : {{certification.provider}} </div>
+                <div>Certificate Expire : {{certification.expire_status}} </div>
+
+                <!--<div>( {{certification.endorsement_count}} )</div>-->
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section3" class="sectionBody" ng-controller="WPSkillsController">
+    <div class="container">
+        <br/>
+        <p class="subHeaders">Add Skill</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <table style="width:100%">
+            <tr>
+                <td><input type="text" placeholder="* Skill" name="Wskill" ng-model="Wskill" list="skills"/></td>
+                <datalist id="skills">
+                    <option>Strength and Stamina</option>
+                    <option>Mechanical Knowledge</option>
+                    <option>Coordination</option>
+                    <option>Oral Communication</option>
+                    <option>Adept with Technology</option>
+                    <option>Critical Reasoning Skills</option>
+                    <option>Willingness to Learn</option>
+                    <option>Organization</option>
+                    <option>Working Well With Others</option>
+                    <option>Time management</option>
+                    <option>Scheduling</option>
+                    <option>Estimating</option>
+                    <option>Designing</option>
+                    <option>Renovations</option>
+                    <option>Heavy Lifting</option>
+                    <option>Labor</option>
+                    <option>Safety</option>
+                    <option>Read and Interpret Drawings</option>
+                    <option>Measuring</option>
+                </datalist>
+                <td><i class="fa fa-plus-circle" style="font-size: 30px;" ng-click="AddSkill()"></i></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <p class="subHeaders">Your Skills</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <div style="text-align: center">
+            <div class="skillLoop" ng-repeat="skill in skills">
+                <div style="text-align: right">
+                    <button style="height: 24px;background-color: transparent;border: none;">
+                        <i class="mdi mdi-delete-forever" style="font-size: 20px;" ng-click="DeleteSkill(skill.skill_id)"></i>
+                    </button>
+                </div>
+                <div style="text-overflow: ellipsis;overflow: hidden;">{{skill.skill}}</div>
+                <div>( {{skill.endorsement_count}} )</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section4" class="sectionBody" ng-controller="WPExprController">
+    <div class="container">
+        <div>
+            <ul id="errorList4" style="color: red"></ul>
+        </div>
+        <br/>
+        <p class="subHeaders">Add Experience</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <textarea rows="3" style="width: 100%" placeholder="* Describe experince" name="Wexpr" ng-model="Wexpr"/></textarea>
+                </td>
+                <td>
+                    <input type="text" placeholder="* Year" style="width: 30%" name="Wyearexpr" ng-model="Wyearexpr" list="years"/>
+                    <datalist id="years"></datalist>
+                    <i class="fa fa-plus-circle" style="font-size: 25px;" ng-click="AddExperience()"></i>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <p class="subHeaders">Your Experience</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <div style="text-align: center">
+            <div class="ExprLoop" ng-repeat="expr in exprs">
+                <div style="width: auto;text-align: left;float: left;margin-left: 20px;">Year - {{expr.year}}</div>
+                <div style="text-align: right;float: right;">
+                    <button style="height: 24px;background-color: transparent;border: none;">
+                        <i class="mdi mdi-delete-forever" style="font-size: 20px;" ng-click="DeleteExperience(expr.experience_id)"></i>
+                    </button>
+                </div>
+                <br/>
+                <div style="text-overflow: ellipsis;overflow: hidden;word-wrap: break-word;">{{expr.experience}}</div>
+                <div>( {{expr.endorsement_count}} )</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section5" class="sectionBody" ng-controller="WPFeedbackController" >
+    <div class="container">
+        </br>
+        <p class="subHeaders">Your Feedbacks</p>
+        <hr style="border-top: 1px solid #9c9595" />
+        <div>
+            <div class="FeedbackLoop" ng-repeat="feedback in feedbacks">
+                <div style="width: 5%;vertical-align: center;text-align: center;float: left">
+                    {{$index+1}}
+                </div>
+                <div style="width: 95%;float: right;">
+                    <div style="width: auto;margin-left: 20px;">Client Rating : {{feedback.customer_rate}}</div>
+                    <div style="text-overflow: ellipsis;overflow: hidden;word-wrap: break-word;margin-left: 20px;margin-top: 10px;">
+                        "{{feedback.comment}}"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section6" class="sectionBody"  ng-controller="WPAccountController">
+    <form action="" method="">
+        <div class="container">
+            <div>
+                <ul id="errorList6" style="color: red"></ul>
+            </div>
+            <p class="subHeaders">Login Credentials</p>
+            <hr style="border-top: 1px solid #9c9595" />
+            <table style="width:50%">
+                <tr>
+                    <td><input type="password" placeholder="* Current Password" name="Wcurrentpsw" ng-model="Wcurrentpsw" /></td>
+                </tr>
+                <tr>
+                    <td><input type="password" placeholder="* New Password" name="Wpsw" ng-model="Wpsw" /></td>
+                </tr>
+                <tr>
+                    <td><input type="password" placeholder="* Repeat New Password" name="Wpswrepeat" ng-model="Wpswrepeat" /></td>
+                </tr>
+            </table>
+            <button type="button" class="registerbtn" ng-click="ChangePSW()">Change Password</button>
+            <br/>
+            <br/>
+            <br/>
+            <button type="button" class="cancelbtn" ng-click="DeactivateAccount()">Deactivate My Account</button>
+        </div>
+    </form>
+</section>
+
+<!--================Footer Area =================-->
+<div class="footer_copy_right">
+    <div class="container">
+        <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"></a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></h4>
+    </div>
+</div>
+</footer>
+<!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Rev slider js -->
+<script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendors/counterup/waypoints.min.js"></script>
+<script src="vendors/counterup/jquery.counterup.min.js"></script>
+<script src="vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="js/gmaps.min.js"></script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

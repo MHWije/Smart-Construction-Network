@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Construction - WeBuilder Template</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+    <link href="vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/layout.css" type="text/css" />
+    <!-- 3 Column Stylesheet Added To The Page And Not To The Layout.css -->
+    <link rel="stylesheet" href="css/3_column.css" type="text/css" />
+    <link rel="stylesheet" href="SCN/css/notifications.css" type="text/css" />
+    <script src="./SCN/js/angular.min.js"></script>
+    <script src="./SCN/js/Newproject.js"></script>
+
+    <!-- ErrorHandling script -->
+    <script src="./SCN/js/ErrorHandling.js"></script>
+
+    //
+    <style type="text/css">
+
+        .style1
+        {
+            width: 430px;
+        }
+        .style2
+        {
+            width: 114px;
+        }
+        .style3
+        {
+            width: 117px;
+        }
+        .style4
+        {
+            width: 118px;
+        }
+        .style5
+        {
+            width: 255px;
+        }
+        .style11
+        {
+            width: 84px;
+        }
+        .style12
+        {
+            width: 47px;
+        }
+        .style13
+        {
+            width: 255px;
+            height: 28px;
+        }
+        .style15
+        {
+            width: 84px;
+            height: 28px;
+        }
+        .style17
+        {
+            width: 47px;
+            height: 28px;
+        }
+        .style18
+        {
+            height: 28px;
+        }
+        .style19
+        {
+            width: 255px;
+            height: 33px;
+        }
+        .style21
+        {
+            width: 84px;
+            height: 33px;
+        }
+        .style23
+        {
+            width: 47px;
+            height: 33px;
+        }
+        .style24
+        {
+            height: 33px;
+        }
+
+        .mainResult div {
+            float: left;
+            clear: none;
+            width: 578px;
+        }
+
+        .style25 {
+            width: 900%;
+        }
+
+        .style26 {
+            height: 28px;
+        }
+
+        .style27 {
+            width: 217px;
+        }
+
+        .style28 {
+            height: 28px;
+            width: 217px;
+        }
+
+
+        .style35{
+            margin-right: -10px;
+        }
+        #Select1 {
+            width: 174px;
+            height: 22px;
+        }
+        .shopBtn {min-height: 34px;font-size: 14px;font-weight: bold;line-height: 34px;text-align: center;color: #fff;border-radius: 2px;background: #f89406;display:inline-block;padding:0 12px;border:0;}
+
+    </style>
+
+    <!--Error Handle-->
+
+    <script>
+        function abc(checkboxID,selectID) {
+            if(document.getElementById(checkboxID).checked){
+                document.getElementById(selectID).disabled = false;
+            }
+            else{
+                document.getElementById(selectID).disabled = true;
+            }
+        }
+    </script>
+
+
+</head>
+<body ng-app="NewProjectApp" >
+
+
+<!--================Header Area =================-->
+<header class="main_header_area">
+    <div class="header_top_area">
+        <div class="container">
+
+            <div class="pull-right">
+                <ul class="header_social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu_area" ng-controller="HeaderController">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="img/b.jpg" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="OurProjects.html">Projects</a></li>
+                        <li class="active"><a href="New_Project.html">New Project</a></li>
+                        <li><a href="c1.html">Estimations</a></li>
+                        <li class="dropdown submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loggedUsername}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Profile.html">View Profile</a></li>
+                                <li><a href="#" ng-click="logout()">Log Out</a></li>
+                            </ul>
+                        </li>
+                        <li class="notifyCount" id="notifyCount" data-badge="1"><a href=""><i class="mdi mdi-message"></i></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+</header>
+<!--================Header Area =================-->
+
+<!--================Banner Area =================-->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_text">
+            <h4>Create a Project</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--================End Banner Area =================-->
+
+<!--================Our Project2 Area =================-->
+<section class="our_project2_area project_grid_three">
+    <div class="container">
+        <div class="main_c_b_title">
+            <h2>New<br class="title_br">Project</h2>
+            <h6>Great & Awesome Works</h6>
+        </div>
+        <div id="container" ng-controller="NewProjectCtrl">
+            <div id="respond">
+                <div style="margin-left:450px" >
+                    <ul id="errorList1" style="color: red"></ul>
+                </div>
+                <form>
+                    <table align="center">
+
+
+                        <tr>
+                        <tr>
+                            <td class="style19">
+                                <label for="length"><small>Category</small></label>
+                            </td>
+
+                            <td class="style15">
+                                <select id="Select1" ng-model="category" name="D1" style="width: 170px; height: 28px; border: 1px solid;">
+                                    <option value="building">Building</option>
+                                    <option value="house">House</option>
+                                </select>
+
+                            </td>
+
+
+
+                            <td class="style18">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style19">
+                                <label for="length"><small>Description</small></label>
+                            </td>
+                            <td class="style21">
+                                <textarea style="border: 1px solid; width: 170px" id="TextArea1" cols="20" ng-model="description" rows="3"></textarea></td>
+                            </td>
+
+
+                            <td class="style24">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style19">
+                                <label for="length"><small>Planned start</small></label></td>
+                            <td class="style11">
+                                <input type="date" ng-model="pdate" name="pdate" style="border: 1px solid; width: 170px" >
+                            </td>
+                            <td>&nbsp;&nbsp; </td>
+
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <td class="style19">
+                                <label for="length"><small>Planned End</small></label>
+                            </td>
+                            <td class="style21">
+                                <input type="date" ng-model="pedate" name="pedate" style="border: 1px solid; width: 170px" >
+                            </td>
+
+
+                            <td class="style24">
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <br><br>
+                        <tr class="blank_row">
+                            <td ><br></td>
+                        </tr>
+
+                        <tr>
+                            <td class="style5">
+                                &nbsp;</td>
+
+                            <td class="style13">
+                                Stages  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Order</td>
+
+
+
+
+                        </tr>
+
+                        <tr>
+                            <td  class="style13">
+                                <label for="length"><small>Foundation Stage</small></label>
+                            </td>
+                            <td class="style21">
+                                <input ng-model="stage_1" value="visible" id="Checkbox1" style="width: 100% margin-left:550px;" type="checkbox" onchange="abc('Checkbox1','Select2')" />
+                            </td>
+                            <td class="style15">
+                                <select id="Select2" ng-model="orderstage1" name="D1" style=" margin-left:-115px;width: 30px; height: 28px; border: 1px solid; " disabled>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+
+                            <td class="style18">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style13">
+                                Flooring Stage</td>
+                            <td class="style21">
+                                <input ng-model="stage_2" value="visible" id="Checkbox2" style="width: 100% margin-left:550px;" type="checkbox" onchange="abc('Checkbox2','Select3')" />
+                            <td class="style21">
+
+                                <select id="Select3" ng-model="orderstage2" name="D1" style=" margin-left:-115px; width: 30px; height: 28px; border: 1px solid;" disabled>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                            <td class="style24">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style19">
+                                Roofing Stage</td>
+                            <td class="style11">
+                                <input ng-model="stage_3" value="visible" id="Checkbox3" style="width: 100% margin-left:550px;" type="checkbox" onchange="abc('Checkbox3','Select4')" />
+                            <td class="style11">
+
+                                <select id="Select4" ng-model="orderstage3" name="D1" style="margin-left:-115px; width: 30px; height: 28px; border: 1px solid;" disabled>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="style19">
+                                Tiling Stage</td>
+                            <td class="style11">
+                                <input ng-model="stage_4" value="visible" id="Checkbox4" style="width: 100% margin-left:550px;" type="checkbox"  onchange="abc('Checkbox4','Select5')"/>
+                            <td class="style11">
+
+                                <select id="Select5" ng-model="orderstage4" name="D1" style="margin-left:-115px; width: 30px; height: 28px ; border: 1px solid;" disabled>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="style19">
+                                Painting Stage</td>
+                            <td class="style17">
+                                <input ng-model="stage_5" value="visible" id="Checkbox5" style="width: 100% margin-left:550px;" type="checkbox" onchange="abc('Checkbox5','Select6')"/>
+                            <td class="style11">
+
+                                <select id="Select6" ng-model="orderstage5" name="D1" style=" margin-left:-115px; width: 30px; height: 28px; border: 1px solid;" disabled;>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+
+                        <tr class="blank_row">
+                            <td ><br></td>       </tr>
+                        <td>
+                            &nbsp;</td>
+                        </tr>
+
+
+                        <tr></td>
+
+
+                            <td>  </td></tr>
+                        </p>
+
+                    </table>
+                    <input ng-click="AddProject()" name="submit" type="submit" class="shopBtn" style= "height: 32px; width: 120px; margin-left:450px;    "id="submit" value="Submit Form" />
+                    <input name="reset" type="reset" id="reset" class="shopBtn" tabindex="5" value="Reset Form" />
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Table end -->
+
+    </div>
+</section>
+<!--================End Our Project2 Area =================-->
+
+<!--================Get Quote Area =================-->
+<section class="get_quote_area yellow_get_quote">
+    <div class="container">
+        <div class="pull-left">
+
+        </div>
+        <div class="pull-right">
+            <a class="get_btn_black" href="#">SAVE YOUR PROJECT</a>
+        </div>
+    </div>
+</section>
+<!--================End Get Quote Area =================-->
+
+<!--================Footer Area =================-->
+<footer class="footer_area">
+
+
+    <div class="footer_copy_right">
+        <div class="container">
+            <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"></a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></h4>
+        </div>
+    </div>
+</footer>
+<!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Rev slider js -->
+<script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendors/counterup/waypoints.min.js"></script>
+<script src="vendors/counterup/jquery.counterup.min.js"></script>
+<script src="vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="js/gmaps.min.js"></script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

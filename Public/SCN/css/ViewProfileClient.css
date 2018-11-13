@@ -1,0 +1,60 @@
+.rateTbl tr:hover {background-color:#f5f5f5;}
+.rateTbl tr:first-child {background-color:#FFFFFF; }
+.style1
+{
+    width: 430px;
+}
+.style2
+{
+    width: 114px;
+}
+.style3
+{
+    width: 117px;
+}
+.style4
+{
+    width: 118px;
+}
+.style11
+{
+    width: 20%;
+}
+.style13
+{
+    width: 255px;
+    height: 28px;
+}
+.style15
+{
+    width: 84px;
+    height: 28px;
+}
+.style17
+{
+    width: 47px;
+    height: 28px;
+}
+.style18
+{
+    height: 28px;
+}
+.style19
+{
+    width: 255px;
+    height: 33px;
+}
+.style21
+{
+    width: 84px;
+    height: 33px;
+}
+.style23
+{
+    width: 47px;
+    height: 33px;
+}
+.style24
+{
+    height: 33px;
+}

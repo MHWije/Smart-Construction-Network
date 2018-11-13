@@ -1,0 +1,61 @@
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.sectionBody{
+    background-color: white;
+    padding-bottom: 50px;
+    height: auto;
+}
+
+.leftPanel{
+    width: 1%;
+    float: left;
+    color: black;
+    display: inline-block;
+    height: 330px;
+}
+
+.rightPanel{
+    width: 100%;
+    padding: 20px;
+    color: black;
+    height: auto;
+}
+
+.SuggestionLoop{
+    margin: 8px;
+    background-color: #f5f5f0;
+    width: 100%;
+}
+
+.SuggestionLoop img{
+    border: 1px solid black;
+}
+
+.actionButtons{
+    margin: 25px;
+}
+
+.actionButtons .btn1{
+    width: 100px;
+    background-color: white;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    cursor: pointer;
+}
+
+.actionButtons .btn2{
+    width: 100px;
+    background-color: white;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+    cursor: pointer;
+}
+
+.actionButtons .btn3{
+    width: 100px;
+    background-color: white;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    cursor: pointer;
+}
